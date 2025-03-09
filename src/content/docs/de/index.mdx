@@ -1,0 +1,36 @@
+---
+title: Willkommen bei Starlight
+description: Beginne mit dem Aufbau deiner Dokumentationsseite mit Starlight.
+template: splash
+hero:
+  tagline: Herzlichen Glückwunsch zum Einrichten eines neuen Starlight-Projekts!
+  image:
+    file: ../../../assets/houston.webp
+  actions:
+    - text: Beispielanleitung
+      link: /docs-user/de/guides/example
+      icon: right-arrow
+    - text: Lies die Starlight-Dokumentation
+      link: https://starlight.astro.build
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Nächste Schritte
+
+<CardGrid stagger>
+	<Card title="Inhalte aktualisieren" icon="pencil">
+		Bearbeite `src/content/docs/index.mdx`, um diese Seite zu ändern.
+	</Card>
+	<Card title="Neue Inhalte hinzufügen" icon="add-document">
+		Füge Markdown- oder MDX-Dateien zu `src/content/docs` hinzu, um neue Seiten zu erstellen.
+	</Card>
+	<Card title="Konfiguriere deine Seite" icon="setting">
+		Bearbeite deine `sidebar` und andere Konfigurationen in `astro.config.mjs`.
+	</Card>
+	<Card title="Lesen Sie die Dokumentation" icon="open-book">
+		Erfahre mehr in [der Starlight-Dokumentation](https://starlight.astro.build/).
+	</Card>
+</CardGrid>
