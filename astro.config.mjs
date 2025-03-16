@@ -25,16 +25,7 @@ export default defineConfig({
                 translations: {
                     de: 'Anleitungen',
                 },
-                items: [
-                    // Each item here is one entry in the navigation menu.
-                    {
-                        label: 'Example Guide',
-                        slug: 'guides/example',
-                        translations: {
-                            de: 'Beispiel Anleitung',
-                        },
-                    },
-                ],
+                autogenerate: { directory: 'guides' },
             },
             {
                 label: 'Reference',

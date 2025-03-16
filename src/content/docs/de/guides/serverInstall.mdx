@@ -1,0 +1,36 @@
+---
+title: Installation des Servers
+description: Eine Anleitung zum installieren des LPRD Servers
+---
+
+Mehrere Displaymodule können auch komfortabel über eine einzige Weboberfläche gesteuert werden, dafür wird die LPRD Webapplikation eingesetzt. Die Displaymodule verbinden sich im Servermodus mit dem spezifizierten Server und fragen nach dem aktuellen Bild an. Falls absehbar ist, wie lange das Bild gültig sein soll, dann gibt der Server dem Displaymodul die Information weiter, wie lange das Displaymodul im Schlaf verweilen soll. Falls keine Gültigkeitsdauer absehbar ist, kann das Displaymodul per Knopfdruck, am Displaymodul selber, aufgeweckt und somit der Aktualisierungsprozess gestartet werden. Die LPRD Webapplikation bietet auch die Möglichkeit, Bilder per API-Schnittstelle automatisiert erstellen zu lassen, somit können zum Beispiel Raum- belegungsdaten über WebUntis vollautomatisch an ein Displaymodul gesendet werden.
+
+## Serverinstallation
+
+Es wird empfohlen, die LPRD Webapplikation auf einem Linux-Server zu installieren. Benötigt wird auf dem Server unter anderem Node.js und Docker. Zusätzlich empfiehlt es sich, vor der Webapplikation einen Reverse Proxy für HTTPS-Verschlüsselung und gegebenenfalls auch Authentifizierungsschutz zu verwenden. Nachdem die Anforderungen installiert wurden, kann das [Repository](https://www.github.com/THA-LPRD/web) von der Webapplikation auf den Server geklont werden. Die Webapplikation verwendet eine PostgreSQL Datenbank, welche sich am einfachsten als Docker Container installiert werden kann mit:
+
+
+ `sudo docker run --name lprd-postgres -v pgdata:/var/lib/postgresql/data -p 5432:5432 -e POSTGRES_PASSWORD#<SicherersDatenbankPasswort> -d postgres`
+
+Die Verbindung zur Datenbank muss der Webapplikation über die `.env` Datei mit 
+
+`DATABASE_URL#"postgresql://<PostgresUser>:<PostgresUserPassword>@<PostgresServerIP/Hostname>:5432"` 
+
+bekannt gemacht werden. Danach kann das Datenbankschema über
+
+`npx prisma migrate dev --name init`
+
+erstellt werden. Für die Konvertierung von HTML zu PNG wird die Library node-html-to-image verwendet. Diese nutzt Puppeteer als Basis für die Konvertierung. Beim direkten Testen auf dem Server kann es vorkommen, dass Puppeteer nicht startet, da es weitere Abhängigkeiten hat. Diese fehlenden Abhängigkeiten können mit dem folgenden Befehl herausgefunden werden:
+
+`ldd /home/<USER>/.cache/puppeteer/chrome/linux-<VERSION>/chrome-linux64/chrome | grep not`
+
+Bei einer Installation auf dem Debian-Betriebssystem kann es notwendig sein, die folgenden Pakete zu installieren: 
+
+`sudo apt-get install libgbm1 libasound2 libxkbcommon0 libatk-bridge2.0-0 libnss3`
+
+Die Vorbereitungen sind somit abgeschlossen und der Development-Server kann gestartet werden.
+
+`npm run dev`
+
+Damit wird der Server auf Port 3000 gestartet und kann über einen Reverse proxy freigegeben werden, der Development-Server ist blockierend und kann über `CTRL+C` beendet werden. 
+
