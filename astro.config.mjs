@@ -5,6 +5,85 @@ import tailwindcss from '@tailwindcss/vite';
 
 import react from '@astrojs/react';
 
+const dir_usage_op_mode_standalone_network = {
+    label: 'Standalone and Network',
+    translations: {
+        de: 'Standalone und Network',
+    },
+    items: [
+        {
+            label: 'Installation',
+            slug: 'guides/usage/op-mode/standalone-network/installation',
+            translations: {
+                de: 'Installation',
+            },
+        },
+        {
+            label: 'User Interface',
+            slug: 'guides/usage/op-mode/standalone-network/user-interface',
+            translations: {
+                de: 'Benutzteroberfläche',
+            },
+        },
+        {
+            label: 'Settings',
+            slug: 'guides/usage/op-mode/standalone-network/settings',
+            translations: {
+                de: 'Einstellungen',
+            },
+        },
+    ],
+}
+
+const dir_usage_op_mode_server = {
+    label: 'Server',
+    translations: {
+        de: 'Server',
+    },
+    items: [
+        {
+            label: 'Installation',
+            slug: 'guides/usage/op-mode/server/installation',
+            translations: {
+                de: 'Installation',
+            },
+        },
+        {
+            label: 'Configuration',
+            slug: 'guides/usage/op-mode/server/configuration',
+            translations: {
+                de: 'Konfiguration',
+            },
+        },
+        {
+            label: 'User Interface',
+            slug: 'guides/usage/op-mode/server/user-interface',
+            translations: {
+                de: 'Benutzteroberfläche',
+            },
+        },
+    ],
+}
+
+const dir_usage = {
+    label: 'Usage',
+    translations: {
+        de: 'Verwendung',
+    },
+    items: [
+        {
+            label: 'Operating Modes',
+            translations: {
+                de: 'Betriebsmodi',
+            },
+            items: [
+                dir_usage_op_mode_standalone_network,
+                dir_usage_op_mode_server,
+            ],
+        },
+    ],
+}
+
 // https://astro.build/config
 export default defineConfig({
     integrations: [starlight({
@@ -26,14 +105,14 @@ export default defineConfig({
                     de: 'Anleitungen',
                 },
                 items: [
-                    // Each item here is one entry in the navigation menu.
                     {
-                        label: 'Example Guide',
-                        slug: 'guides/example',
+                        label: 'Getting Started',
+                        slug: 'guides/getting-started',
                         translations: {
-                            de: 'Beispiel Anleitung',
+                            de: 'Erste Schritte',
                         },
                     },
+                    dir_usage,
                 ],
             },
             {
