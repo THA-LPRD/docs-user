@@ -1,11 +1,88 @@
 ---
-title: Erste Schritte
-description: Beschreibung von Erste Schritte.
+title: Installation
+description: Einrichtung Ihres ePaper-Anzeigemoduls
 ---
 
-Anleitungen führen einen Benutzer durch eine bestimmte Aufgabe, die sie erledigen möchten, oft mit einer Reihe von Schritten.
-Eine gute Anleitung zu schreiben erfordert, dass du darüber nachdenkst, was deine Benutzer versuchen zu tun.
+import { Steps } from '@astrojs/starlight/components';
 
-## Weiterführende Lektüre
+Diese Anleitung behandelt die erste Einrichtung Ihres ePaper-Anzeigemoduls.
 
-- Lies [über Anleitungen](https://diataxis.fr/how-to-guides/) im Diátaxis-Framework
+## Voraussetzungen
+
+Bevor Sie beginnen, stellen Sie sicher, dass Sie Folgendes haben:
+
+- Ihr ePaper-Anzeigemodul mit eingesetzter Batterie
+- Ein Gerät mit WLAN-Fähigkeit und einem Webbrowser
+
+## Ersteinrichtung
+
+Das Gerät ist im Auslieferungszustand im Standalone-Modus vorkonfiguriert und erstellt sein eigenes WLAN-Netzwerk.
+
+### Verbindung zum Gerät herstellen
+
+<Steps>
+    1. Öffnen Sie auf Ihrem Gerät die WLAN-Einstellungen
+    2. Verbinden Sie sich mit dem Netzwerk namens `LPRD-Display-XXXX` (wobei XXXX eine eindeutige Kennung ist)
+    3. Geben Sie das Standardpasswort ein: `password`
+    4. Warten Sie, bis die Verbindung hergestellt ist
+</Steps>
+
+### Zugriff auf die Weboberfläche
+
+<Steps>
+    1. Öffnen Sie einen Webbrowser
+    2. Navigieren Sie zu `http://192.168.4.1`
+    3. Melden Sie sich mit den Standardzugangsdaten an:
+
+        <div>
+            - Benutzername: `admin`
+            - Passwort: `admin`
+        </div>
+
+    4. Nach erfolgreicher Anmeldung sehen Sie die Weboberfläche des Geräts
+</Steps>
+
+## Konfiguration des Netzwerk-Modus (Optional)
+
+Wenn Sie das Gerät lieber in Ihrem bestehenden WLAN-Netzwerk verwenden möchten, lesen Sie auf der Seite [Einstellungen](../../settings) die Anweisungen zum Ändern des Betriebsmodus.
+
+Bei Verwendung des Netzwerk-Modus müssen Sie die IP-Adresse des Geräts über die DHCP-Clientliste Ihres Routers ermitteln, um wieder darauf zugreifen zu können.
+
+## Energieverwaltung
+
+Das Gerät ist für niedrigen Stromverbrauch konzipiert:
+
+- Das Display wechselt nach 5 Minuten Inaktivität automatisch in den Schlafmodus
+- Im Schlafmodus ist das Gerät nicht über WLAN erreichbar
+- Um das Gerät aufzuwecken, drücken Sie eine der physischen Tasten
+- Das Gerät nimmt den Betrieb wieder auf und reaktiviert seine Netzwerkverbindung
+
+## Fehlerbehebung
+
+### Kann keine Verbindung zum WLAN-Netzwerk herstellen
+
+<Steps>
+    1. Überprüfen Sie, ob Sie versuchen, sich mit dem richtigen Netzwerknamen zu verbinden
+    2. Überprüfen Sie das Passwort auf Tippfehler
+    3. Bei Verwendung von WPA2-Enterprise überprüfen Sie, ob alle Anmeldedaten korrekt sind
+    4. Stellen Sie sicher, dass sich das Gerät in Reichweite des WLAN-Routers befindet
+    5. Versuchen Sie, das Gerät und Ihren WLAN-Router neu zu starten
+</Steps>
+
+### Kann nicht auf die Weboberfläche zugreifen
+
+<Steps>
+    1. Überprüfen Sie, ob Sie mit dem richtigen Netzwerk verbunden sind
+    2. Im Standalone-Modus versuchen Sie, zu `192.168.4.1` zu navigieren
+    3. Im Netzwerk-Modus stellen Sie sicher, dass Sie die richtige IP-Adresse verwenden
+    4. Löschen Sie Ihren Browser-Cache oder versuchen Sie einen anderen Browser
+    5. Starten Sie das Gerät neu
+</Steps>
+
+### Gerät reagiert nicht
+
+<Steps>
+    1. Prüfen Sie, ob sich das Gerät im Schlafmodus befindet (drücken Sie eine Taste, um es aufzuwecken)
+    2. Überprüfen Sie, ob die Batterie geladen ist
+    3. Versuchen Sie, die Werkseinstellungen wiederherzustellen
+</Steps>

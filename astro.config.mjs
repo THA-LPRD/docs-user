@@ -25,13 +25,6 @@ const dir_usage_op_mode_standalone_network = {
                 de: 'Benutzteroberfläche',
             },
         },
-        {
-            label: 'Settings',
-            slug: 'guides/usage/op-mode/standalone-network/settings',
-            translations: {
-                de: 'Einstellungen',
-            },
-        },
     ],
 }
 
@@ -81,6 +74,13 @@ const dir_usage = {
                 dir_usage_op_mode_server,
             ],
         },
+        {
+            label: 'Settings',
+            slug: 'guides/usage/settings',
+            translations: {
+                de: 'Einstellungen',
+            },
+        },
     ],
 }
 
@@ -119,7 +119,7 @@ export default defineConfig({
                 label: 'Reference',
                 autogenerate: { directory: 'reference' },
             },
-		],
+        ],
         customCss: [
             '@fontsource-variable/inter-tight',
             '@fontsource-variable/roboto-mono',
@@ -140,8 +140,8 @@ export default defineConfig({
                 lang: 'de',
             },
         },
-        }),
-        react()
+    }),
+    react()
     ],
     trailingSlash: 'never',
     vite: {

@@ -1,0 +1,57 @@
+/* Simple list styling for Starlight */
+
+/* Base list styling - exclude .sl-steps lists */
+.sl-markdown-content ol:not(.sl-steps),
+.sl-markdown-content ul:not(.sl-steps) {
+  padding-inline-start: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+/* List item spacing - exclude .sl-steps list items */
+.sl-markdown-content ol:not(.sl-steps) > li,
+.sl-markdown-content ul:not(.sl-steps) > li {
+  margin-bottom: 0.5rem;
+}
+
+/* Unordered list bullet styling - exclude .sl-steps */
+.sl-markdown-content ul:not(.sl-steps) {
+  list-style-type: disc; /* First level: disc (•) */
+}
+
+.sl-markdown-content ul:not(.sl-steps) ul:not(.sl-steps) {
+  list-style-type: circle; /* Second level: circle (◦) */
+}
+
+.sl-markdown-content ul:not(.sl-steps) ul:not(.sl-steps) ul:not(.sl-steps) {
+  list-style-type: square; /* Third level: square (▪) */
+}
+
+/* Ordered list number styling - exclude .sl-steps */
+.sl-markdown-content ol:not(.sl-steps) {
+  list-style-type: decimal; /* First level: numbers (1., 2., 3.) */
+}
+
+.sl-markdown-content ol:not(.sl-steps) ol:not(.sl-steps) {
+  list-style-type: lower-alpha; /* Second level: lowercase letters (a., b., c.) */
+}
+
+.sl-markdown-content ol:not(.sl-steps) ol:not(.sl-steps) ol:not(.sl-steps) {
+  list-style-type: lower-roman; /* Third level: lowercase roman (i., ii., iii.) */
+}
+
+/* Nested list spacing - exclude .sl-steps */
+.sl-markdown-content li:not(.sl-steps li) > ul:not(.sl-steps),
+.sl-markdown-content li:not(.sl-steps li) > ol:not(.sl-steps) {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Ensure paragraphs within list items have proper spacing - exclude .sl-steps */
+.sl-markdown-content li:not(.sl-steps li) > p {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.sl-markdown-content li:not(.sl-steps li) > p:last-child {
+  margin-bottom: 0;
+}

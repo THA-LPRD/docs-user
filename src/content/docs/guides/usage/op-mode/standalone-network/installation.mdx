@@ -1,11 +1,88 @@
 ---
 title: Installation
-description: Description of installation.
+description: How to set up your ePaper display module
 ---
 
-Guides lead a user through a specific task they want to accomplish, often with a sequence of steps.
-Writing a good guide requires thinking about what your users are trying to do.
+import { Steps } from '@astrojs/starlight/components';
 
-## Further reading
+This guide covers the initial setup of your ePaper display module.
 
-- Read [about how-to guides](https://diataxis.fr/how-to-guides/) in the Diátaxis framework
+## Prerequisites
+
+Before starting, ensure you have:
+
+- Your ePaper display module with battery inserted
+- A device with WiFi capability and a web browser
+
+## Initial Setup
+
+The device comes pre-configured in Standalone mode, creating its own WiFi network.
+
+### Connecting to the Device
+
+<Steps>
+    1. On your device, open WiFi settings
+    2. Connect to the network named `LPRD-Display-XXXX` (where XXXX is a unique identifier)
+    3. Enter the default password: `password`
+    4. Wait for the connection to establish
+</Steps>
+
+### Accessing the Web Interface
+
+<Steps>
+    1. Open a web browser
+    2. Navigate to `http://192.168.4.1`
+    3. Log in with the default credentials:
+
+        <div>
+            - Username: `admin`
+            - Password: `admin`
+        </div>
+
+    4. After successful login, you'll see the device's web interface
+</Steps>
+
+## Configuring Network Mode (Optional)
+
+If you prefer to use the device on your existing WiFi network, refer to the [Settings](../../settings) page for instructions on changing the operating mode.
+
+When using Network mode, you'll need to find the device's IP address through your router's DHCP client list to access it again.
+
+## Power Management
+
+The device is designed for low power consumption:
+
+- The display automatically enters sleep mode after 5 minutes of inactivity
+- While in sleep mode, the device cannot be accessed through WiFi
+- To wake the device, press any of the physical buttons
+- The device will resume operation and reactivate its network connection
+
+## Troubleshooting
+
+### Cannot Connect to WiFi Network
+
+<Steps>
+    1. Verify you're trying to connect to the correct network name
+    2. Double-check the password for typos
+    3. If using WPA2-Enterprise, verify all credentials are correct
+    4. Ensure the device is within range of the WiFi router
+    5. Try restarting the device and your WiFi router
+</Steps>
+
+### Cannot Access Web Interface
+
+<Steps>
+    1. Verify you're connected to the correct network
+    2. In Standalone mode, try navigating to `192.168.4.1`
+    3. In Network mode, ensure you're using the correct IP address
+    4. Clear your browser cache or try a different browser
+    5. Restart the device
+</Steps>
+
+### Device Not Responding
+
+<Steps>
+    1. Check if the device is in sleep mode (press a button to wake it)
+    2. Verify the battery is charged
+    3. Try performing a factory reset
+</Steps>
