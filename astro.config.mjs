@@ -112,6 +112,13 @@ export default defineConfig({
                             de: 'Erste Schritte',
                         },
                     },
+                    {
+                        label: 'System Concept',
+                        slug: 'guides/system-konzept',
+                        translations: {
+                            de: 'Systemkonzept',
+                        },
+                    },
                     dir_usage,
                 ],
             },
